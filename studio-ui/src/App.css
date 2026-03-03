@@ -1,0 +1,123 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page Background */
+body {
+  background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+  min-height: 100vh;
+}
+
+/* Main Container */
+.app-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+.app-container h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #1f2937;
+}
+
+/* Prompt Section */
+input {
+  padding: 12px 14px;
+  width: 60%;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+button {
+  padding: 12px 18px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Generate Button */
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* First Button (Generate) */
+button:first-of-type {
+  background-color: #2563eb;
+  color: white;
+}
+
+button:first-of-type:hover {
+  background-color: #1d4ed8;
+}
+
+.editor-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+
+.editor-section canvas {
+  
+  display: block;
+  margin: 0 auto;   /* THIS is the real centering */
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.prompt-section {
+  display: flex;
+  justify-content: center;   /* centers horizontally */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.download-btn {
+  margin-top: 20px;
+  background-color: #10b981;
+  color: white;
+}
+
+.download-btn:hover {
+  background-color: #059669;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .app-container {
+    padding: 20px;
+  }
+}

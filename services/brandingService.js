@@ -5,6 +5,10 @@ async function applyBranding(baseImagePath, logoPath, outputPath) {
     const baseImage = sharp(baseImagePath);
     const metadata = await baseImage.metadata();
 
+    if (!metadata.width || !metadata.height) {
+      throw new Error("Invalid base image");
+    }
+
     const imageWidth = metadata.width;
     const imageHeight = metadata.height;
 
@@ -25,7 +29,7 @@ async function applyBranding(baseImagePath, logoPath, outputPath) {
     const logoX = imageWidth - logoWidth - margin;
     const logoY = imageHeight - logoHeight - margin;
 
-    await baseImage
+    await  sharp(baseImagePath)
       .composite([
         {
           input: logoBuffer,
@@ -36,6 +40,7 @@ async function applyBranding(baseImagePath, logoPath, outputPath) {
       .toFile(outputPath);
 
   } catch (error) {
+    console.error("Branding error:", error);   
     throw new Error("Branding failed");
   }
 }

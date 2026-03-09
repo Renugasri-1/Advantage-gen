@@ -24,7 +24,9 @@ export default function PromptForm({ onImageGenerated }) {
       onChange={(e) => setPrompt(e.target.value)}
       placeholder="Enter prompt"
     />
-    <button onClick={handleGenerate}>Generate</button>
+    <button onClick={handleGenerate}>Generate</button>       
   </div>
 );
 }
+
+

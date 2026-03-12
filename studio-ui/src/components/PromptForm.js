@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-export default function PromptForm({ onImageGenerated }) {
+export default function PromptForm({ onImageGenerated, onCampaignGenerated}) {
   const [prompt, setPrompt] = useState("");
 
   const handleGenerate = async () => {
@@ -12,9 +12,10 @@ export default function PromptForm({ onImageGenerated }) {
     });
 
      console.log("Full response:", res.data);
-    console.log("brandedImage value:", res.data.brandedImage);
-    
-    onImageGenerated("http://localhost:5000/" + res.data.brandedImage);
+    console.log("imageUrl value:", res.data.imageUrl);
+
+onImageGenerated(res.data.imageUrl);
+onCampaignGenerated(res.data.campaignId);
   };
 
   return (

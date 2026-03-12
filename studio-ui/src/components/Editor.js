@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef,useState } from "react";
 import { Canvas, Image, Textbox } from "fabric";
 
-export default function Editor({ imageUrl }) {
+export default function Editor({ imageUrl, campaignId, setImageUrl }) {
   const canvasRef = useRef(null);
   const fabricRef = useRef(null);
+  const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
     if (!imageUrl) return;
@@ -102,12 +103,72 @@ export default function Editor({ imageUrl }) {
     link.click();
   };
 
+  const handleRemix = async () => {
+  try {
+    const res = await fetch(`http://localhost:5000/api/remix/${campaignId}`, {
+      method: "POST"
+    });
+
+    const data = await res.json();
+
+    console.log("Remix result:", data);
+
+    if (data.imageUrl) {
+      setImageUrl(data.imageUrl);
+    }
+
+  } catch (err) {
+    console.error("Remix error:", err);
+  }
+};
+
+const handleHistory = async () => {
+  try {
+    const res = await fetch("http://localhost:5000/api/campaigns");
+
+    const data = await res.json();
+
+    console.log("Campaign history:", data);
+
+    setCampaigns(data.campaigns);
+
+  } catch (err) {
+    console.error("History error:", err);
+  }
+};
+
   return (
     <div className="editor-section">
       <canvas ref={canvasRef} />
+      <div className="editor-buttons">
       <button className="download-btn" onClick={handleDownload}>
         Download Final Image
       </button>
+      <button className="remix-btn"onClick={handleRemix}>
+  Remix 
+</button>
+
+<button className="history-btn"onClick={handleHistory}>
+  Campaign History
+</button>
+    </div>
+    <div className="history-section">
+
+        {campaigns.map((item, index) => (
+
+          <div key={index} className="history-item">
+
+            <img
+              src={item.imageUrl}
+              alt="campaign"
+              
+            />
+
+          </div>
+
+        ))}
+
+      </div>
     </div>
   );
 }

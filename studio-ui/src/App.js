@@ -5,14 +5,16 @@ import Editor from "./components/Editor";
 
 function App() {
   const [imageUrl, setImageUrl] = useState(null);
+  const [campaigns, setCampaigns] = useState([]);
+  const [campaignId, setCampaignId] = useState(null);
 
   return (
     <div className="app-container">
       <h1>AI Campaign Studio</h1>
 
-      <PromptForm onImageGenerated={setImageUrl} />
+      <PromptForm onImageGenerated={setImageUrl} onCampaignGenerated={setCampaignId} />
 
-      {imageUrl && <Editor imageUrl={imageUrl} />}
+      {imageUrl && <Editor imageUrl={imageUrl} campaignId={campaignId} setImageUrl={setImageUrl}/>}
     </div>
   );
 }

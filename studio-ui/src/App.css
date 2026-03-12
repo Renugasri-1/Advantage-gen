@@ -178,3 +178,12 @@ button:first-of-type:hover {
   height:200px;
   object-fit:cover;
 }
+
+.caption-box{
+  margin-top:20px;
+  padding:15px;
+  background:#f3f4f6;
+  border-radius:10px;
+  line-height:1.6;
+  text-align:left;
+}

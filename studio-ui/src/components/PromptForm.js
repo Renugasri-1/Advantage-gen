@@ -13,8 +13,9 @@ export default function PromptForm({ onImageGenerated, onCampaignGenerated}) {
 
      console.log("Full response:", res.data);
     console.log("imageUrl value:", res.data.imageUrl);
+    console.log("copy value:", res.data.copy);
 
-onImageGenerated(res.data.imageUrl);
+onImageGenerated(res.data.imageUrl, res.data.copy);
 onCampaignGenerated(res.data.campaignId);
   };
 

@@ -105,18 +105,11 @@ CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 AI_API_KEY=your_ai_api_key
 
-Running the Project ▶️
-Start the backend server:
-Copy code
+## Live Demo
+Frontend: https://advantage-gen-chi.vercel.app/
 
-npm start
-Server runs at:
-Copy code
-
-http://localhost:5000
-API Endpoints 📡
-Generate Campaign
-Copy code
+## Backend API
+https://advantage-gen.onrender.com
 
 POST /api/generate
 Generates a new AI campaign.

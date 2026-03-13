@@ -6,7 +6,7 @@ import Editor from "./components/Editor";
 function App() {
   const [imageUrl, setImageUrl] = useState(null);
   const [copy, setCopy] = useState("");
-  const [campaigns, setCampaigns] = useState([]);
+  //const [campaigns, setCampaigns] = useState([]);
   const [campaignId, setCampaignId] = useState(null);
 
   return (

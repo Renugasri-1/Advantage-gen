@@ -105,7 +105,7 @@ export default function Editor({ imageUrl, campaignId, setImageUrl }) {
 
   const handleRemix = async () => {
   try {
-    const res = await fetch(`http://localhost:5000/api/remix/${campaignId}`, {
+    const res = await fetch(`https://advantage-gen.onrender.com/api/remix/${campaignId}`, {
       method: "POST"
     });
 
@@ -124,7 +124,7 @@ export default function Editor({ imageUrl, campaignId, setImageUrl }) {
 
 const handleHistory = async () => {
   try {
-    const res = await fetch("http://localhost:5000/api/campaigns");
+    const res = await fetch("https://advantage-gen.onrender.com/api/campaigns");
 
     const data = await res.json();
 

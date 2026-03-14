@@ -5,7 +5,7 @@ export default function PromptForm({ onImageGenerated, onCampaignGenerated}) {
   const [prompt, setPrompt] = useState("");
 
   const handleGenerate = async () => {
-    const res = await axios.post("http://localhost:5000/api/generate-campaign", {
+    const res = await axios.post("https://advantage-gen.onrender.com/api/generate-campaign", {
       prompt,
       tone: "premium",
       platform: "instagram"
